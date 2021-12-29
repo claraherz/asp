@@ -12,10 +12,32 @@ k = 254412 '1'
 l = 4 '2'
 t = 5 '33' 
 s = 165 
+dim dblnum1, dblnum2
+dim simbolos
 
 %>
 <!-- BLOCO DE FUNÇÕES E SUBFUNÇÕES -->
 <%
+
+dblnum1 = Request.Form("primeiro")
+dblnum2 = Request.Form("segundo")
+simbolos = Request.Form("simbolos")
+
+            select case (simbolos)
+                case "+"
+                resultado= cdbl(dblnum1)+cdbl(dblnum2)
+                
+                case "-"
+                resultado= cdbl(dblnum1)-cdbl(dblnum2)
+
+                case "x"
+                resultado= cdbl(dblnum1)*cdbl(dblnum2)
+
+                case "÷"
+                resultado= cdbl(dblnum1)/cdbl(dblnum2)
+            end select
+
+
 
             'sessão soma'
             sub soma()
@@ -103,16 +125,6 @@ s = 165
             color: #fff;
             transition: 0.5s;
         }
-        .calc{
-            width: 70px;
-            height: 25px;
-            font-size: 15px;
-            margin: 3px;
-            background-color: #3d3267;
-            border: none;
-            color: #fff;
-            cursor: pointer;
-        }
         .container{
             width: 85%;
             background: #fff;
@@ -132,17 +144,19 @@ s = 165
              <h3>Minha Calculadora</h3>
              <!--<h1>Somas</h1>-->
              <h2>
-                 <form method="get" action="calculadora.asp">
+                 <form method="post" action="calculadora.asp">
                     <p class="label">insira o primeiro número</p>
-                    <input type="number" name="primeiro" value=""><!--pode ser aqui-->
+                    <input type="text" name="primeiro" value=""><!--pode ser aqui-->
                     <p class="label">insira o segundo número</p>
-                    <input type="number" name="segundo" value="" ><!--pode ser aqui-->
+                    <input type="text" name="segundo" value="" ><!--pode ser aqui-->
                     <br>
                     <input type="submit" class="op" type="button" name="simbolos" value="+">
                     <input type="submit" class="op" type="button" name="simbolos" value="-">
                     <input type="submit" class="op" type="button" name="simbolos" value="x">
                     <input type="submit" class="op" type="button" name="simbolos" value="÷">
-                    <input type="submit" class="calc" value="Calcular">
+                    <%
+                    response.write "<br>Esse é o resultado da equação: "&resultado
+                    %>
              </h2>
             
              

@@ -6,12 +6,44 @@
     dim intVar2
     dim arrStrTeste, x
     dim i
-    dim verificar
     dim tamArr
     dim strEmails
     dim arrEmails
     dim strColors
     dim arrColors
+    dim strExer, strExerStr
+
+    sub comparador()
+        if strExer = strExerStr then
+        response.write "Sao iguais"
+        else
+        response.write "Sao diferentes"
+        end if
+    end sub
+
+    strExer = "arara"
+    response.write "palavra trans: "&strreverse(strExer)&"<br>"
+
+    response.write "Palavra: "&strExer&"<br>"
+    response.write "tamanho: "&len(strExer)&"<br>"
+
+    for i=1 to len(strExer)
+        response.write "posicao: "&mid(strExer,i,1)&"<br>"
+    next
+    response.write "<br>"
+    for i=len(strExer) to 1 step -1
+        response.write "posicao: "&mid(strExer,i,1)&"<br>"
+    next
+
+    for i=len(strExer) to 1 step -1
+        'response.write mid(strExer,i,1)
+        strExerStr = strExerStr + mid(strExer,i,1)
+    next
+    response.write "<br> Palavra ao contrario: "&strExerStr&"<br>"
+
+    call comparador()
+
+    response.end
 
     strColors = "azul;verde;roxo;preto;amarelo;vermelho;branco;magenta;rosa;marrom;"
     arrColors = split(strColors,";")
@@ -31,7 +63,7 @@
     response.write " "
     end if
 
-    response.end
+    
 
     strEmails = "teste@teste.com.br;bala@teste.com.br;gola@teste.com.br;rafaela@teste.com;"
     arrEmails = split(strEmails,";")
