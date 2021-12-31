@@ -145,7 +145,7 @@ s = 165
              <h2>
              <%
              if t>=10 then
-                  response.write("Não é possivel dividir esses dois números, pois o primeiro numero é maior que dez<br>")
+                  response.write("Não é possivel dividir esses dois números, pois o divisor numero é maior que dez<br>")
                  else
                   response.write("Resultado da subfunção de divisão <br>")
              call divisao()

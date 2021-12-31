@@ -12,6 +12,38 @@
     dim strColors
     dim arrColors
     dim strExer, strExerStr
+    dim intNum1
+    dim intNum2
+    dim intTemp
+    dim arrDiasDaSemana
+    dim strDiasDaSemana
+    dim intWeekDay
+    intWeekDay = 4
+
+    strDiasDaSemana = "Domingo; Segunda-feira; Terca-feira; Quarta-feira; Quinta-feira; Sexta-feira; Sabado;"
+
+    arrDiasDaSemana = split(strDiasDaSemana, ";")
+    response.write arrDiasDaSemana(Weekday(date()-1))
+
+    response.end
+
+    intNum1 = 0
+    intNum2 = 1
+    i = 1 
+    response.write 1&" "
+    do while i < 20
+        intTemp = intNum1
+        intNum1 = intNum2
+        intNum2 = intNum1 + intTemp
+        response.write intNum2&" "
+        i = i + 1
+
+    loop
+    
+
+
+
+    response.end
 
     sub comparador()
         if strExer = strExerStr then
@@ -21,8 +53,7 @@
         end if
     end sub
 
-    strExer = "arara"
-    response.write "palavra trans: "&strreverse(strExer)&"<br>"
+    strExer = "a grama e amarga"
 
     response.write "Palavra: "&strExer&"<br>"
     response.write "tamanho: "&len(strExer)&"<br>"
@@ -36,12 +67,16 @@
     next
 
     for i=len(strExer) to 1 step -1
-        'response.write mid(strExer,i,1)
+        response.write mid(strExer,i,1)
         strExerStr = strExerStr + mid(strExer,i,1)
     next
     response.write "<br> Palavra ao contrario: "&strExerStr&"<br>"
 
     call comparador()
+    response.write "palavra trans: "&strreverse(strExer)&"<br>"
+    response.write "<br> "&Replace(strExer, " ", "")&"<br>"
+    strExerStr = strExer
+    response.write strExer
 
     response.end
 

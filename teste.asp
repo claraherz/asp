@@ -3,7 +3,7 @@
 <%
 
 
-
+dim i, j
 dim strTeste123 
 dim intTeste456, intTeste789
 strTeste123 = "Maria Clara"
@@ -73,7 +73,13 @@ arrRuas(3) = "Rua Alan Nascimento Silva"
                Response.Write("pos 2,4: "&mtzArrayTeste(1,3)&"<br>")
                Response.Write("pos 2,5: "&mtzArrayTeste(1,4)&"<br>")
                
-               Response.Write("teste tamanho:"&ubound(mtzArrayTeste)&"<br>")
+               Response.Write("teste tamanho:"&ubound(mtzArrayTeste,1)&"<br>")
+               for i = 0 to ubound(mtzArrayTeste,1)-1
+                    for j = 0 to ubound(mtzArrayTeste,2)-1
+                    response.write "pos:" &i&","&j&mtzArrayTeste(i,j)&"<br>"
+                    next
+
+               next
 
                call testesub()
                response.write(testefunction())
