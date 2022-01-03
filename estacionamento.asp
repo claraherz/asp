@@ -1,5 +1,29 @@
 <%@LANGUAGE="VBSCRIPT" LCID=1046 CODEPAGE="65001"%>
 <%Option Explicit%>
+<%
+dim nomeUser, placaCarro, horaEntrada, arrnome, arrplaca, arrhora, i
+nomeUser = Request.Form("nomeUser")
+placaCarro = Request.Form("placaCarro")
+horaEntrada = Request.Form("horaEntrada")
+
+redim arrnome(10)
+redim arrplaca(10)
+redim arrhora(10)
+
+if isarray(session("sessionarrnome")) then
+    arrnome = session("sessionarrnome")
+    arrplaca = session("sessionarrplaca")
+    arrhora = session("sessionarrhora")
+end if
+
+session("sessionarrnome")=arrnome
+session("sessionarrplaca")=arrplaca
+session("sessionarrhora")=arrhora
+
+for i=0 to ubound(arrnome)-1
+    response.write arrnome(i)&"<br>"&arrplaca(i)&"<br>"&arrhora(i)&"<br>"
+next
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,7 +60,7 @@
 
     </style>
     <body>
-        <form method="post" action="informacoes.asp">
+        <form method="post" action="estacionamento.asp">
                     <input type="text" name="nomeUser" value="" class="decor" placeholder="insira seu nome completo">
                     <input type="text" name="placaCarro" value="" class="decor" placeholder="insira a placa do seu carro">
                     <p class="decor">insira a hora que você entrou</p>
@@ -44,6 +68,8 @@
                     <p>
                     <input type="submit" value="Done!" class="button">
                     <br>
+
+
         </form>
 
     </body>
