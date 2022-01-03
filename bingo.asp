@@ -34,9 +34,18 @@ end function
                     if j=0 then
                     max=15
                     min=1
+                    elseif j=1 then
+                    max=30
+                    min=16
+                    elseif j=2 then
+                    max=45
+                    min=31
+                    elseif j=3 then
+                    max=46
+                    min=60
                     else 
                     max=75
-                    min=16
+                    min=61
                     end if
                     numdel = (Int((max-min+1)*Rnd+min))
                     if verIgual(numdel)=true then
@@ -77,6 +86,7 @@ body{
 }
     </style>
     <body>
+        <div class="container">
         <h2>
             <%
                 response.write "<table border = 1>"
@@ -105,5 +115,6 @@ body{
                 response.write "<table>"
             %>
         </h2>
+        </div>
     </body>
 </html>

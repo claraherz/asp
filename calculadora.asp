@@ -2,16 +2,7 @@
 <%Option Explicit%>
 <!-- BLOCO DE VARIÝVEIS -->
 <%
-dim a, b, g, h, k, l, t, s, x
 dim resultado
-a = 30'2 
-b = 765 
-g = 58.5 '13'
-h = 32 '0.512'
-k = 254412 '1'
-l = 4 '2'
-t = 5 '33' 
-s = 165 
 dim dblnum1, dblnum2
 dim simbolos
 dim boolpi
@@ -28,86 +19,78 @@ simbolos = Request.Form("simbolos")
 
             select case (simbolos)
                 case "+"
-                if dblnum1<10 and dblnum2>10 then
-                  strMostraNaTela = "Não é possivel somar esses dois números, pois o primeiro numero é menor que dez<br>"
-                  boolValida = false
+                    if dblnum1<10 and dblnum2>10 then
+                        strMostraNaTela = "Não é possivel somar esses dois números, pois o primeiro numero é menor que dez<br>"
+                        boolValida = false
 
-                 elseif dblnum1>10 and dblnum2<10 then
-                  strMostraNaTela = "Não é possivel somar esses dois numeros, pois o segundo número é menor que 10<br>"
-                  boolValida = false
-                 else
-                 resultado= cdbl(dblnum1)+cdbl(dblnum2)
+                    elseif dblnum1>10 and dblnum2<10 then
+                        strMostraNaTela = "Não é possivel somar esses dois numeros, pois o segundo número é menor que 10<br>"
+                        boolValida = false
+                    else
+                        resultado= cdbl(dblnum1)+cdbl(dblnum2)
 
-                 if resultado mod 2 = 0 then 
-                 boolpi = true
-                 else
-                 boolpi = false
-                 end if
-                 boolValida = true
-
-                 end if
-                
+                        if resultado mod 2 = 0 then 
+                            boolpi = true
+                        else
+                            boolpi = false
+                        end if
+                        boolValida = true
+                    end if
                 case "-"
-                if dblnum1<20 and dblnum2>20 then
-                  strMostraNaTela = "Não é possivel subtrair esses dois números, pois o primeiro numero é menor que 20<br>"
-                  boolValida = false
+                    if dblnum1<20 and dblnum2>20 then
+                        strMostraNaTela = "Não é possivel subtrair esses dois números, pois o primeiro numero é menor que 20<br>"
+                        boolValida = false
 
-                 elseif dblnum1>20 and dblnum2<20 then
-                  strMostraNaTela = "Não é possivel subtrair esses dois numeros, pois o segundo número é menor que 20<br>"
-                  boolValida = false
+                    elseif dblnum1>20 and dblnum2<20 then
+                        strMostraNaTela = "Não é possivel subtrair esses dois numeros, pois o segundo número é menor que 20<br>"
+                        boolValida = false
 
-                 else
-                   resultado= cdbl(dblnum1)-cdbl(dblnum2)
+                    else
+                        resultado= cdbl(dblnum1)-cdbl(dblnum2)
 
-                   if resultado mod 2 = 0 then 
-                   boolpi = true
-                   else
-                   boolpi = false
-                   end if
-
-                   boolValida = true
-                 end if
-                
-
+                        if resultado mod 2 = 0 then 
+                            boolpi = true
+                        else
+                            boolpi = false
+                        end if
+                        boolValida = true
+                    end if
                 case "x"
-                if dblnum1<=2 and dblnum2>=2 then
-                  strMostraNaTela = "Não é possivel multiplicar esses dois números, pois o primeiro numero é menor que 2<br>"
-                  boolValida = false
+                    if dblnum1<=2 and dblnum2>=2 then
+                        strMostraNaTela = "Não é possivel multiplicar esses dois números, pois o primeiro numero é menor que 2<br>"
+                        boolValida = false
 
-                 elseif dblnum1>=2 and dblnum2<=2 then
-                  strMostraNaTela = "Não é possivel multiplicar esses dois numeros, pois o segundo número é menor que 2<br>"
-                  boolValida = false
+                    elseif dblnum1>=2 and dblnum2<=2 then
+                        rMostraNaTela = "Não é possivel multiplicar esses dois numeros, pois o segundo número é menor que 2<br>"
+                        boolValida = false
 
-                 else
-                  resultado= cdbl(dblnum1)*cdbl(dblnum2)
+                    else
+                        resultado= cdbl(dblnum1)*cdbl(dblnum2)
 
-                  if resultado mod 2 = 0 then 
-                  boolpi = true
-                  else
-                  boolpi = false
-                  end if
-
-                  boolValida = true
-                 end if
-                
-
+                        if resultado mod 2 = 0 then 
+                            boolpi = true
+                        else
+                            boolpi = false
+                        end if
+                        boolValida = true
+                    end if
                 case "÷"
-                if dblnum2>=10 then
-                  strMostraNaTela = "Não é possivel dividir esses dois números, pois o divisor numero é maior que dez<br>"
-                  boolValida = false
+                    if dblnum2>=10 then
+                        strMostraNaTela = "Não é possivel dividir esses dois números, pois o divisor numero é maior que dez<br>"
+                        boolValida = false
+                    elseif dblnum2 < 0 then 
+                        strMostraNaTela="Não é possivel dividir essa equação"
+                    else
+                        resultado= cdbl(dblnum1)/cdbl(dblnum2)
 
-                 else
-                  resultado= cdbl(dblnum1)/cdbl(dblnum2)
+                        if resultado mod 2 = 0 then 
+                            boolpi = true
+                        else
+                            boolpi = false
+                        end if
+                        boolValida = true
 
-                  if resultado mod 2 = 0 then 
-                  boolpi = true
-                  else
-                  boolpi = false
-                  end if
-                  boolValida = true
-
-                 end if
-                
+                    end if
             end select
 
         %>
@@ -131,7 +114,7 @@ simbolos = Request.Form("simbolos")
             min-height: 100vh;
             width: 100%;
             display: flex;
-            background-image: url("wallpaper2.jpg");
+            background-image: url("images/wallpaper2.jpg");
             background-size: 100%;
             align-items: center;
             justify-content: center;
@@ -196,6 +179,8 @@ simbolos = Request.Form("simbolos")
                     <input type="submit" class="op" type="button" name="simbolos" value="-">
                     <input type="submit" class="op" type="button" name="simbolos" value="x">
                     <input type="submit" class="op" type="button" name="simbolos" value="÷">
+                 </form>
+                 <h1>
                     <%
                     
                     if boolValida = false then
@@ -209,14 +194,9 @@ simbolos = Request.Form("simbolos")
                                 response.write "<br> Seu número é impar"
                             end if
                     end if
-                    
-                    
                     %>
+                 </h1>
              </h2>
-            
-             
-               
        </div>
-
     </body>
 </html>
