@@ -10,8 +10,8 @@ redim mtzBingo(5,5)
 Randomize()
 function verIgual(numdel)
   dim igual 
-  igual = false
-  for k = 0 to ubound(mtzBingo,1)-1
+  igual=false
+  for k=0 to ubound(mtzBingo,1)-1
       for l=0 to ubound(mtzBingo,2)-1
           if numdel=mtzBingo(k,l) then
              igual=true
@@ -22,12 +22,12 @@ function verIgual(numdel)
        exit for
       end if
   next
-verIgual = igual
+verIgual=igual
 end function
 
 
             Randomize()
-            for i = 0 to ubound(mtzBingo,1)-1
+            for i=0 to ubound(mtzBingo,1)-1
                 for j=0 to ubound(mtzBingo,2)-1
                     
                     Randomize()
@@ -47,16 +47,16 @@ end function
                     max=75
                     min=61
                     end if
-                    numdel = (Int((max-min+1)*Rnd+min))
+                    numdel=(Int((max-min+1)*Rnd+min))
                     if verIgual(numdel)=true then
                         do while verIgual(numdel)=true
                             Randomize()
-                            numdel = (Int((max-min+1)*Rnd+min))
+                            numdel=(Int((max-min+1)*Rnd+min))
                         loop
                     end if
                     mtzBingo(i,j)=numdel
-                    if i = 2 and j = 2 then
-                    mtzBingo(i,j) = " ★ "
+                    if i = 2 and j=2 then
+                    mtzBingo(i,j)=" ★ "
                     end if
                 next
             next
@@ -69,21 +69,20 @@ end function
     </head>
     <style>
         *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins" , sans-serif;
-}
-
-body{
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    background-color: #fff;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins" , sans-serif;
+        }
+        body{
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            background-color: #fff;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
     </style>
     <body>
         <div class="container">
@@ -105,10 +104,6 @@ body{
                         if qtd = 5 then
                         qtd = 0 
                         response.write "</tr>"
-                        'qtd2 = qtd2 + 1
-                            'if qtd2 < 5 then
-                                'response
-                            'end if
                         end if
                     next
                 next

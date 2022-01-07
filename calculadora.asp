@@ -10,7 +10,6 @@ dim boolValida
 dim strMostraNaTela
 
 %>
-<!-- BLOCO DE FUNÇÕES E SUBFUNÇÕES -->
 <%
 
 dblnum1 = Request.Form("primeiro")
